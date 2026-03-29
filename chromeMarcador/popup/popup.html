@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 350px;
+      min-height: 400px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8fafc;
+    }
+    .header {
+      background: #3b82f6;
+      color: white;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header h1 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .header button {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .header button:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .bookmarks-list {
+      max-height: 350px;
+      overflow-y: auto;
+    }
+    .bookmark-item {
+      background: white;
+      margin: 8px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .bookmark-item:hover {
+      background: #f1f5f9;
+    }
+    .bookmark-content {
+      padding: 12px;
+    }
+    .bookmark-text {
+      font-size: 14px;
+      color: #1e293b;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .bookmark-meta {
+      font-size: 11px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+    }
+    .bookmark-meta a,
+    .bookmark-meta .goto-btn {
+      color: #3b82f6;
+      text-decoration: none;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .bookmark-meta a:hover,
+    .bookmark-meta .goto-btn:hover {
+      text-decoration: underline;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #fee2e2;
+      border: none;
+      color: #ef4444;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .delete-btn:hover {
+      background: #fecaca;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #64748b;
+    }
+    .empty-state span {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Marcadores Guardados</h1>
+    <button id="clearAll">Limpiar todo</button>
+  </div>
+  <div class="bookmarks-list" id="bookmarksList"></div>
+
+  <script src="../config/config.js"></script>
+  <script src="../lib/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
