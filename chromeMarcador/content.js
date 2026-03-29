@@ -128,6 +128,7 @@ async function handleDoubleClick(event) {
     anchorId: anchorId,
     selector: getSelector(target),
     tagName: target.tagName,
+    note: '',
     url: window.location.href,
     pageTitle: document.title
   };

@@ -14,6 +14,7 @@ const Storage = {
     data.push({
       id: Date.now().toString(),
       ...bookmark,
+      note: bookmark.note || '',
       url: normalizedUrl,
       createdAt: new Date().toISOString()
     });

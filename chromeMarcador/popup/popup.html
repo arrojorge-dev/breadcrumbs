@@ -63,6 +63,14 @@
       margin-bottom: 6px;
       line-height: 1.4;
     }
+    .bookmark-note {
+      font-size: 12px;
+      color: #64748b;
+      background: #f1f5f9;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
     .bookmark-meta {
       font-size: 11px;
       color: #64748b;
@@ -102,6 +110,97 @@
     .delete-btn:hover {
       background: #fecaca;
     }
+    .note-btn {
+      position: absolute;
+      top: 8px;
+      right: 40px;
+      background: #e0f2fe;
+      border: none;
+      color: #0284c7;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .note-btn:hover {
+      background: #bae6fd;
+    }
+    .note-btn.has-note {
+      background: #fef3c7;
+      color: #d97706;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .modal-content h3 {
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #1e293b;
+    }
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .modal-content input:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+    .modal-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .modal-buttons button {
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      border: none;
+    }
+    .modal-buttons .save-btn {
+      background: #3b82f6;
+      color: white;
+    }
+    .modal-buttons .save-btn:hover {
+      background: #2563eb;
+    }
+    .modal-buttons .cancel-btn {
+      background: #f1f5f9;
+      color: #64748b;
+    }
+    .modal-buttons .cancel-btn:hover {
+      background: #e2e8f0;
+    }
+    .char-count {
+      font-size: 11px;
+      color: #64748b;
+      text-align: right;
+      margin-bottom: 10px;
+    }
     .empty-state {
       text-align: center;
       padding: 40px 20px;
@@ -120,6 +219,18 @@
     <button id="clearAll">Limpiar todo</button>
   </div>
   <div class="bookmarks-list" id="bookmarksList"></div>
+
+  <div id="noteModal" class="modal">
+    <div class="modal-content">
+      <h3>Editar Nota</h3>
+      <input type="text" id="noteInput" maxlength="128" placeholder="Escribe una nota...">
+      <div class="char-count"><span id="charCount">0</span>/128</div>
+      <div class="modal-buttons">
+        <button class="cancel-btn" id="cancelNoteBtn">Cancelar</button>
+        <button class="save-btn" id="saveNoteBtn">Guardar</button>
+      </div>
+    </div>
+  </div>
 
   <script src="../config/config.js"></script>
   <script src="../lib/storage.js"></script>
